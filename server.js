@@ -1,11 +1,13 @@
 const express = require('express');
 const app =  express();
 const mongoose = require('mongoose');
-const Task = require('./models/tasks.js');
 const methodOverride = require('method-override');
 
 app.use(express.urlencoded({extended:false}));
 app.use(methodOverride('_method'));
+
+const tasksController = require('./controllers/tasks.js');
+app.use('/tasks', tasksController);
 
 app.get('/tasks/seed', (req,res)=>{
     Task.create([
@@ -37,60 +39,6 @@ app.get('/tasks/seed', (req,res)=>{
         res.redirect('/tasks');
     });
 });
-
-// index
-app.get('/tasks/', (req,res)=>{
-    Task.find({}, (err, allTasks)=>{
-        res.render('index.ejs', {
-            tasks: allTasks
-        });
-    });
-});
-
-// new
-app.get('/tasks/new', (req,res)=>{
-    res.render('new.ejs');
-});
-
-// show
-app.get('/tasks/:id', (req,res)=>{
-    Task.findById(req.params.id, (err, foundTask)=>{
-        res.render('show.ejs', {
-            task:foundTask
-        });
-    });
-});
-
-// create
-app.post('/tasks/', (req,res)=>{
-    Task.create(req.body, (err, createdTask)=>{
-        res.redirect('/tasks');
-    });
-});
-
-// delete
-app.delete('/tasks/:id', (req,res)=>{
-    Task.findByIdAndRemove(req.params.id, (err, data)=>{
-        res.redirect('/tasks');
-    });
-});
-
-// edit
-app.get('/tasks/:id/edit', (req,res)=>{
-    Task.findById(req.params.id, (err, foundTask)=>{
-        res.render('edit.ejs', {
-            task: foundTask
-        });
-    });
-});
-
-// put
-app.put('/tasks/:id', (req,res)=>{
-    Task.findByIdAndUpdate(req.params.id, req.body, (err, updatedModel)=>{
-        res.redirect('/tasks');
-    });
-});
-
 
 mongoose.connect('mongodb://localhost:27017/taskit');
 mongoose.connection.once('open', ()=>{

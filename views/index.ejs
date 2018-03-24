@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Tasks Index Page</h1>
+        <ul>
+            <% for(let i = 0; i < tasks.length; i++){ %>
+                <li>
+                <a href="/tasks/<%=tasks[i].id; %>">Task</a>: <%=tasks[i].description; %>
+                    Budget: <%=tasks[i].budget; %>
+                    Location: <%=tasks[i].location; %>
+                    Due Date: <%=tasks[i].duedate; %>
+                    <!-- Edit -->
+                    <form>
+                    <a href="/tasks/<%=tasks[i].id; %>/edit">Edit task</a>
+                    </form>
+                    <!-- Delete -->
+                    <form action="/tasks/<%=tasks[i].id; %>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE"/>
+                    </form>
+                </li>
+            <% } %>
+        </ul>
+        <nav>
+            <a href="/tasks/new">Create a New Task</a>
+        </nav>
+    </body>
+</html>

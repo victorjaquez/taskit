@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Edit Task Page</h1>
+        <form action="/tasks/<%=task.id%>?_method=PUT" method="POST">
+            Description: <input type="text" name="description" value="<%=task.description%>" /><br/>
+            Budget: <input type="text" name="budget" value="<%=task.budget%>" /><br/>
+            Location: <input type="text" name="location" value="<%=task.location%>" /><br/>
+            Due Date: <input type="text" name="duedate" value="<%=task.duedate%>" /><br/>
+            <input type="submit" value="Submit update"/>
+        </form>
+    </body>
+</html>

@@ -40,11 +40,14 @@ app.get('/tasks/seed', (req,res)=>{
     });
 });
 
-mongoose.connect('mongodb://localhost:27017/taskit');
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/taskit';
+mongoose.connect(mongoURI);
+
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongod . . .');
 });
 
-app.listen(3000, ()=>{
+const port = process.env.PORT || 3000;
+app.listen(port, ()=>{
     console.log('listening. . .');
 });

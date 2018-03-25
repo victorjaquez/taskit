@@ -20,15 +20,19 @@
                 </nav>
             </div>
         </header>
-    <div class="show">
-                    <h1>Task: <%=task.description; %></h1>
-                    <h2>Budget: <%=task.budget; %></h2>
-                    <h2>Location: <%=task.location; %></h2>
-                    <h2>Due Date: <%=task.duedate; %></h2>
-    </div>
-        <nav>
-            <a href="/tasks/">Back to browse tasks</a>
-        </nav>
+        <section id="showcase">
+            <div class="container">
+                <h1>Create User</h1>
+                <form action="/users" method="POST">
+                    <input type="text" name="username" placeholder="username" />
+                    <input type="password" name="password" />
+                    <input type="submit" value="Create User" />
+                </form>
+        </section>
+
+
+
+
         <footer>
             <p>Taskit | Copyright &copy;</p>
         </footer>

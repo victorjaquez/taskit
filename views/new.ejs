@@ -14,13 +14,14 @@
                 <nav>
                     <ul>
                         <li><a href="/tasks/">Browse Tasks</a></li>
-                        <li><a href="/signup">Sign up</a></li>
-                        <li><a href="/login">Log in</a></li>
+                        <li><a href="/users/new">Sign up</a></li>
+                        <li><a href="/sessions/new">Log in</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-
+        <section id="showcase">
+            <div class="container">
         <form class="form" action="/tasks" method="POST">
             Description: <input type="text" name="description" /><br/>
             Budget: <input type="text" name="budget" /><br/>
@@ -28,6 +29,7 @@
             Due Date: <input type="text" name="duedate" /><br/>
             <input type="submit" value="Create Task"/>
         </form>
+    </section>
         <footer>
             <p>Taskit | Copyright &copy;</p>
         </footer>

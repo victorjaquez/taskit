@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const session = require('express-session');
 const Task = require('../models/tasks.js');
 
 // new
 router.get('/new', (req,res)=>{
-    res.render('new.ejs');
+    if(req.session.currentuser){
+        res.render('new.ejs');
+    } else {
+        res.redirect('/sessions/new')
+    }
 });
 
 // create
@@ -16,11 +21,15 @@ router.post('/', (req,res)=>{
 
 // index
 router.get('/', (req,res)=>{
-    Task.find({}, (err, allTasks)=>{
-        res.render('index.ejs', {
-            tasks: allTasks
-        });
-    });
+    if(req.session.currentuser){
+        Task.find({}, (err, allTasks)=>{
+            res.render('index.ejs', {
+                tasks: allTasks
+            })
+        })
+    } else {
+        res.redirect('/sessions/new')
+    }
 });
 
 // show

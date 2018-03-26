@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const session = require('express-session');
 const Task = require('../models/tasks.js');
-
+const bcrypt = require('bcrypt');
 // new
 router.get('/new', (req,res)=>{
     if(req.session.currentuser){

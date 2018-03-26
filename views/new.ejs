@@ -2,25 +2,85 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/style.css" />
         <title></title>
     </head>
     <body>
-        <header>
-            <div class="container">
-                <div id="branding"><a href="/"><img src="http://i64.tinypic.com/15zi2qd.png" height="60" width="150" ></a>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="/tasks/">Browse Tasks</a></li>
-                        <li><a href="/users/new">Sign up</a></li>
-                        <li><a href="/sessions/new">Log in</a></li>
-                    </ul>
-                </nav>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/"><img src="/img/logo.png" height="60" width="150" ></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/tasks">Browse Tasks</a>
+                    </li>
+                    <li>
+                        <form action="/sessions?_method=DELETE" method="POST">
+                            <input type="submit" value="Logout">
+                        </form>
+                    </li>
+                </ul>
             </div>
-        </header>
-        <section id="showcase">
+        </nav>
+
+        <div class="jumbotron">
+            <form class="form" action="/tasks" method="POST">
+                Description: <input type="text" name="description" /><br/>
+                Budget: <input type="text" name="budget" /><br/>
+                Location: <input type="text" name="location" /><br/>
+                Due Date: <input type="text" name="duedate" /><br/>
+                <input type="submit" value="Create Task"/>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">The best place for people and businesses
+        to outsource tasks</h5>
+                        <a href="#" class="card-link"><img src="/img/todo.png"></a>
+                        <h4 class="card-title">What do you need done?</h4>
+                        <p class="card-text">Start by telling us about your task. Mention when and where (in person or online) you need it done, then suggest a fair budget for the task. Post any task you need from cleaning to web design in only two minutes – for free! There's no obligation to hire.</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <a href="#" class="card-link"><img src="/img/trust.png"></a>
+                        <h5 class="card-title">Trusted Workers</h5>
+                        <p class="card-text">Our carefully vetted workers will complete your task at an affordable price and with aa quality finish.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <a href="#" class="card-link"><img src="/img/selection.png"></a>
+                        <h5 class="card-title">Wide Selection</h5>
+                        <p class="card-text">Our workers have a variety of skills, ranging from plumbing to walking your dog. no task is impossible at Taskit.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <a href="#" class="card-link"><img src="/img/insurance.png"></a>
+                        <h5 class="card-title">Top Rated Insurance</h5>
+                        <p class="card-text">Taskit Insurance covers the Tasker for personal injury or property damage while performing certain task activities.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+        <!-- <section id="showcase">
             <div class="container">
         <form class="form" action="/tasks" method="POST">
             Description: <input type="text" name="description" /><br/>
@@ -29,9 +89,12 @@
             Due Date: <input type="text" name="duedate" /><br/>
             <input type="submit" value="Create Task"/>
         </form>
-    </section>
-        <footer>
-            <p>Taskit | Copyright &copy;</p>
-        </footer>
-    </body>
+    </section> -->
+
+    <!--Footer -->
+    <footer class="footer">
+        <div class="container-fluid p-md-2">
+            <a href="/"></a>Taskit | <img src="/img/check.png"></p>
+        </div>
+    </footer>
 </html>

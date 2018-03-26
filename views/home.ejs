@@ -2,73 +2,105 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="/css/style.css" />
 
         <title>Taskit | Welcome</title>
     </head>
     <body>
-        <p>
-            <% if(currentUser){ %>
-                Welcome <%=currentUser.username %>!
-            <% } %>
-        <p>
-        <header>
-            <div class="container">
-                <div id="branding"><a href="/"><img src="http://i64.tinypic.com/15zi2qd.png" height="60" width="150" ></a>
-                </div>
-                <% if(currentUser){%>
-                <nav>
-                    <ul>
-                        <li><a href="/tasks/">Browse Tasks</a></li>
-                        <li><a href="/tasks/new">Create A Task</a></li>
-                            <li>
-                                <form action="/sessions?_method=DELETE" method="POST">
-                                    <input type="submit" value="Logout">
-                                </form>
-                            </li>
-                    </ul>
-                </nav>
-                <% } else { %>
-                <nav>
-                    <ul>
-                        <li><a href="/users/new">Sign up</a></li>
-                        <li><a href="/sessions/new">Log in</a></li>
-                    </ul>
-                </nav>
+    <!--Main Container -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="/"><img src="img/logo.png" height="60" width="150" ></a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <% if(currentUser){%>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/tasks">Browse Tasks</a>
+                </li>
+                <li>
+                    <form action="/sessions?_method=DELETE" method="POST">
+                        <input type="submit" value="Logout">
+                    </form>
+                </li>
+            </ul>
+            <% } else { %>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/new">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/sessions/new">Log In</a>
+                </li>
                 <% } %>
-            </div>
-        </header>
-        <section id="showcase">
-            <div class="container">
-                <h1>Get ANY task done.</h1><h1>Over 1m trusted workers ready to complete your task!</h1>
+            </ul>
+        </div>
+    </nav>
 
-            </div>
-            <div id="button">
-                <a class="btn1" href="/tasks/new">Create a task</a>
-            </div>
-        </section>
-        <section id='boxes'>
-            <div class="container">
-                <div class="box">
-                    <img src="https://png.icons8.com/metro/50/000000/handshake.png">
-                    <h3>Trusted Workers</h3>
-                    <p>Our carefully vetted workers will complete your task at an affordable price and with aa quality finish.</p>
+    <div class="jumbotron">
+        <h1 class="display-4">Get ANY task done.</h1>
+        <p class="lead">Over 1m trusted workers ready to complete your task!</p>
+        <% if(currentUser){%>
+        <p class="lead">
+            <a class="btn btn-success btn-lg" href="/tasks/new" role="button">Create a task</a>
+        </p>
+        <% } else { %>
+            <p class="lead">
+                <a class="btn btn-success btn-lg" href="/sessions/new" role="button">Create a task</a>
+            </p>
+        <% } %>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title">The best place for people and businesses
+to outsource tasks</h5>
+                    <a href="#" class="card-link"><img src="/img/todo.png"></a>
+                    <h4 class="card-title">What do you need done?</h4>
+                    <p class="card-text">Start by telling us about your task. Mention when and where (in person or online) you need it done, then suggest a fair budget for the task. Post any task you need from cleaning to web design in only two minutes – for free! There's no obligation to hire.</p>
+
                 </div>
-                <div class="box">
-                    <img src="https://png.icons8.com/metro/50/000000/reading.png">
-                    <h3>Wide Selection</h3>
-                    <p>Our workers have a variety of skills, ranging from plumbing to walking your dog. no task is impossible at Taskit.</p>
-                </div>
-                <div class="box">
-                    <img src="https://png.icons8.com/metro/50/000000/bank.png">
-                    <h3>Start Earning</h3>
-                    <p>Want to make some extra cash? Sign up to be part of the Taskit team and start earning!</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <a href="#" class="card-link"><img src="/img/trust.png"></a>
+                    <h5 class="card-title">Trusted Workers</h5>
+                    <p class="card-text">Our carefully vetted workers will complete your task at an affordable price and with aa quality finish.</p>
                 </div>
             </div>
-        </section>
-        <footer>
-            <p>Taskit | Copyright &copy;</p>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <a href="#" class="card-link"><img src="/img/selection.png"></a>
+                    <h5 class="card-title">Wide Selection</h5>
+                    <p class="card-text">Our workers have a variety of skills, ranging from plumbing to walking your dog. no task is impossible at Taskit.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <a href="#" class="card-link"><img src="/img/insurance.png"></a>
+                    <h5 class="card-title">Top Rated Insurance</h5>
+                    <p class="card-text">Taskit Insurance covers the Tasker for personal injury or property damage while performing certain task activities.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+        <!--Footer -->
+        <footer class="footer">
+            <div class="container-fluid p-md-2">
+                <a href="/"></a>Taskit | <img src="/img/check.png"></p>
+            </div>
         </footer>
     </body>
 </html>

@@ -3,7 +3,9 @@
 Taskit is a marketplace for people and businesses to outsource tasks, find local services or hire flexible staff in minutes - online or on your mobile.
 ---
 #### Live site: http://taskit-app.herokuapp.com/
-Guest user: Username: guest Password: 12345
+#### Guest user: 
+    Username: guest 
+    Password: 12345
 #### Built With
 
 * HTML5, CSS3, Javascript ES6

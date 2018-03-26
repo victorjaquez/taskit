@@ -32,6 +32,6 @@ Mobile app.
 
 ---
 ### Resources
-[Stock Photos](https://www.pexels.com/)
-Traversy Media for Bootstrap guidance.
-Ben Peters for Bootstrap with Javascript help and unique user_id/object help.
+* [Stock Photos](https://www.pexels.com/)
+* Traversy Media for Bootstrap guidance.
+* Ben Peters for Bootstrap with Javascript help and unique user_id/object help.

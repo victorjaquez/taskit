@@ -1,66 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/style.css" />
-        <title>Taskit | Welcome</title>
+        <% include ../partials/head.ejs %>
     </head>
     <body>
+        <!--Main Container -->
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="/"><img src="http://i64.tinypic.com/15zi2qd.png" height="60" width="150" ></a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Browse Tasks</a>
-                    </li>
-                    <li>
-                        <form action="/sessions?_method=DELETE" method="POST">
-                            <input type="submit" value="Logout">
-                        </form>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+                <a class="navbar-brand" href="/"><img src="/img/logo.png" height="60" width="150" ></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/tasks">Browse Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/tasks/new" class="nav-link btn btn-outline-primary btn-sm">Create a New Task</a>
+                        </li>
+                        <li>
+                            <form action="/sessions?_method=DELETE" method="POST">
+                                <button type="submit" class="nav-link btn btn-outline-primary btn-sm">Log out</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <div class="container">
             <!-- <div class="card"> -->
-                <div class="row">
-                    <% for(let i = 0; i < 1; i++){ %>
-                <div class=‘col-4’>
+            <div class="row row-special">
+                <% for(let i = 0; i < 1; i++){ %>
+                    <div class=‘col-4’>
                         <% for(let i = 0; i < tasks.length; i+=1){ %>
-
-                    <div class="card" style="width: 20rem; text-align:center;display:inline-block;">
-                    <h3><a href="/tasks/<%=tasks[i].id; %>"><%=tasks[i].description; %></a></h3>
-                    <p>Budget: <%=tasks[i].budget; %></p>
-                    <p>Location: <%=tasks[i].location; %></p>
-                    <p>Due Date: <%=tasks[i].duedate; %></p>
-                    <!-- Edit -->
-                    <div>
-                    <a href="/tasks/<%=tasks[i].id; %>/edit" class="btn">Edit task</a>
+                        <div class="card" style="width: 20rem; text-align:center;display:inline-block;">
+                            <h3><a href="/tasks/<%=tasks[i].id; %>"><%=tasks[i].description; %></a></h3>
+                            <p>Budget: <%=tasks[i].budget; %></p>
+                            <p>Location: <%=tasks[i].location; %></p>
+                            <p>Due Date: <%=tasks[i].duedate; %></p>
+                            <p>Phone Number: <%=tasks[i].phonenumber; %></p>
+                            <!-- Edit -->
+                            <div>
+                                <a href="/tasks/<%=tasks[i].id; %>/edit" class="btn btn-outline-primary btn-sm">Edit task</a>
+                            </div>
+                            <!-- Delete -->
+                            <form action="/tasks/<%=tasks[i].id; %>?_method=DELETE" method="POST">
+                                <button type="submit" class="btn btn-outline-primary btn-sm">Delete</button>
+                            </form>
+                        </div>
+                        <% } %>
+                        <% } %>
                     </div>
-                    <!-- Delete -->
-                    <form action="/tasks/<%=tasks[i].id; %>?_method=DELETE" method="POST">
-                        <input class="btn" type="submit" value="Delete"/>
-                    </form>
                 </div>
-            <% } %>
-        <% } %>
-        </div>
-        </div>
-        </div>
-        <div class="container">
-        <nav>
-            <a href="/tasks/new">Create a New Task</a>
-        </nav>
-        </div>
-        <!--Footer -->
-        <footer class="footer">
-            <div class="container-fluid p-md-2">
-                <a href="/"></a>Taskit | <img src="/img/check.png"></p>
             </div>
-        </footer>
-    </body>
+        </body>
 </html>

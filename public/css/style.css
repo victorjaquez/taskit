@@ -19,6 +19,10 @@
 
 }
 
+.jumbotron-special{
+    text-align: center;
+}
+
 .jumbotron{
     margin-top: 4px;
     border: #aab8c2 1px solid; !important;
@@ -30,12 +34,24 @@
     background-color: #f5f8fa; !important;
 }
 
+.card-special {
+    text-align: center;
+    border: white;
+    background: white;
+}
+
+
+.row-special {
+    text-align: center;
+}
+
 .navbar-brand {
     border-right: #aab8c2 2px solid; !important;
 }
 
 .nav-link {
     border-right: #aab8c2 2px solid; !important;
+    margin-right: 5px; !important;
 }
 
 .card {
@@ -49,4 +65,17 @@
 .footer {
     border-top: #aab8c2 2px solid; !important;
     text-align: center;
+}
+
+.form-control {
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+
+.form-group-special {
+    margin-top: -60px;
+}
+
+.btn {
+    margin-top: 3px;
 }

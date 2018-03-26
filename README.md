@@ -5,7 +5,7 @@ Taskit is a marketplace for people and businesses to outsource tasks, find local
 #### Live site: http://taskit-app.herokuapp.com/
 #### Built With
 
-* HTML, CSS, Javascript
+* HTML5, CSS3, Javascript ES6
 * Node.js
 * Express
 * MongoDB
